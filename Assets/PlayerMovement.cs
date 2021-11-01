@@ -7,23 +7,29 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public Rigidbody2D rb;
     private Vector2 moveDirection;
-    // Update is called once per frame
+    public SpriteRenderer mySpriteRenderer;
     void Update()
     {
         ProcessInputs();
-        //*Proccessing input.
     }
-    //*Update every fixed number of frames.
     void FixedUpdate()
     {
-        //*Physics calculations.
         Move();
     }
     void ProcessInputs()
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY= Input.GetAxisRaw("Vertical");
-        moveDirection = new Vector2(moveX, moveY);//*TODO.
+        if (moveX < 0)
+        {
+            mySpriteRenderer.flipX = true;
+        }
+        if (moveX > 0)
+        {
+            mySpriteRenderer.flipX = false;
+        }
+        moveDirection = new Vector2(moveX, moveY).normalized;
+        
     }
     void Move()
     {
