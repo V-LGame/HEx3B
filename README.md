@@ -11,6 +11,9 @@ Was made as one a weekly task in a unity game development course.
 
 By V-LGame .
 
+##### [Player Script](https://github.com/V-LGame/HEx3B/blob/main/Assets/PlayerMovement.cs)
+
+
 
 
 
